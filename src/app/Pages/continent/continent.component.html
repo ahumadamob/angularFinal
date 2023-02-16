@@ -1,0 +1,5 @@
+<div *ngFor="let country of countries">
+    <p>{{country.cca2}}</p>
+    <p>{{country.name.official}}</p>
+    <button routerLink="/country/{{country.cca2}}">{{country.name.common}}</button>
+</div>

@@ -1,0 +1,4 @@
+<div *ngFor="let continent of continents">
+    <p>{{continent.id}}</p>
+    <button routerLink="/continent/{{continent.id}}">{{continent.name}}</button>
+</div>

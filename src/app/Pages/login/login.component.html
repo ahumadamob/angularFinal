@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" [ngClass]="{textError:loginForm.get('email')?.errors && loginForm.get('email')?.dirty}">
+    </div>
+    <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.dirty">
+        <p *ngIf="loginForm.get('email')?.hasError('required')">Campo <strong>Email</strong> es obligatorio</p>
+    </div>     
+
+    <div>
+        <label>Password</label>
+        <input type="password" formControlName="password" [ngClass]="{
+            textError:loginForm.get('password')?.hasError('required') && loginForm.get('password')?.dirty,
+            textWarning:(loginForm.get('password')?.hasError('minlength') || loginForm.get('password')?.hasError('maxlength')) && loginForm.get('password')?.dirty            
+        }">
+    </div>
+    <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.dirty">
+        <p *ngIf="loginForm.get('password')?.hasError('required')">Campo <strong>Password</strong> es obligatorio</p>
+    </div>  
+
+</form>
+
