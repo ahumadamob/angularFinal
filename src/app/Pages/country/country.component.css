@@ -1,0 +1,30 @@
+.country-heading {
+	border-bottom-color: lightgrey;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-right: 20px;
+	padding-bottom: 10px;
+}
+
+.country-coat{
+    max-height: 480px;
+}
+
+.card-100{
+	width: 100%;
+	margin-right: 40px;
+}
+
+.country-link{
+    width: 100%;
+}
+
+.card-data-line{
+	border-top-color: lightgray;
+	border-top-style: solid;
+	border-top-width: 1px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}

@@ -20,8 +20,9 @@ export class CountryComponent {
     try{
       //this.country = await this.countriesService.getById(this.id)
       const response:Country[] = await this.countriesService.getById(this.id)
-      console.log(response)
+      //console.log(response)
       this.country = response[0]
+      console.log(this.country)
     }catch(e){
       console.log(e)
     }    

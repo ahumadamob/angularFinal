@@ -1,44 +1,73 @@
 <form [formGroup]="signupForm" (ngSubmit)="signup()">
     <div>
-        <label>Nombre</label>
-        <input type="text" formControlName="firstname" [ngClass]="{textError:signupForm.get('firstname')?.errors && signupForm.get('firstname')?.dirty}">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" formControlName="firstname" 
+            [ngClass]="{
+                error: signupForm.get('firstname')?.hasError('required') && signupForm.get('firstname')?.dirty,
+                warning:signupForm.get('firstname')?.hasError('minlength') && signupForm.get('firstname')?.dirty
+            }">
+        </mat-form-field>
     </div>
     <div *ngIf="signupForm.get('firstname')?.errors && signupForm.get('firstname')?.dirty">
-        <p *ngIf="signupForm.get('firstname')?.hasError('required')">Campo <strong>Nombre</strong> es obligatorio</p>
+        <p *ngIf="signupForm.get('firstname')?.hasError('required')" class="textError">El campo es obligatorio</p>
+        <p *ngIf="signupForm.get('firstname')?.hasError('minlength')" class="textError">Debe completar al menos 3 caracteres</p>
     </div>
 
     <div>
-        <label>Apellido</label>
-        <input type="text" formControlName="lastname" [ngClass]="{textError:signupForm.get('lastname')?.errors && signupForm.get('lastname')?.dirty}">
+        <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput type="text" formControlName="lastname" 
+            [ngClass]="{
+                error: signupForm.get('lastname')?.hasError('required') && signupForm.get('lastname')?.dirty,
+                warning:signupForm.get('lastname')?.hasError('minlength') && signupForm.get('lastname')?.dirty
+            }">
+        </mat-form-field>
     </div>
     <div *ngIf="signupForm.get('lastname')?.errors && signupForm.get('lastname')?.dirty">
-        <p *ngIf="signupForm.get('lastname')?.hasError('required')">Campo <strong>Apellido</strong> es obligatorio</p>
-    </div> 
-    
+        <p *ngIf="signupForm.get('lastname')?.hasError('required')" class="textError">El campo es obligatorio</p>
+        <p *ngIf="signupForm.get('lastname')?.hasError('minlength')" class="textError">Debe completar al menos 3 caracteres</p>
+    </div>    
+
     <div>
-        <label>Teléfono</label>
-        <input type="number" formControlName="phone">
+        <mat-form-field appearance="fill">
+            <mat-label>Teléfono</mat-label>
+            <input matInput type="text" formControlName="phone" >
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" 
+            [ngClass]="{
+                error: signupForm.get('email')?.hasError('required') && signupForm.get('email')?.dirty,
+                warning:signupForm.get('email')?.hasError('minlength') && signupForm.get('email')?.dirty
+            }">
+        </mat-form-field>
+    </div>
+    <div *ngIf="signupForm.get('lastname')?.errors && signupForm.get('lastname')?.dirty">
+        <p *ngIf="signupForm.get('lastname')?.hasError('required')" class="textError">El campo es obligatorio</p>
+        <p *ngIf="signupForm.get('lastname')?.hasError('minlength')" class="textError">Debe completar al menos 3 caracteres</p>
     </div>
 
     <div>
-        <label>Email</label>
-        <input type="email" formControlName="email" [ngClass]="{textError:signupForm.get('email')?.errors && signupForm.get('email')?.dirty}">
-    </div>
-    <div *ngIf="signupForm.get('email')?.errors && signupForm.get('email')?.dirty">
-        <p *ngIf="signupForm.get('email')?.hasError('required')">Campo <strong>Email</strong> es obligatorio</p>
-    </div>     
-
-    <div>
-        <label>Password</label>
-        <input type="password" formControlName="password" [ngClass]="{
-            textError:signupForm.get('password')?.hasError('required') && signupForm.get('password')?.dirty,
-            textWarning:(signupForm.get('password')?.hasError('minlength') || signupForm.get('password')?.hasError('maxlength')) && signupForm.get('password')?.dirty            
-        }">
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" 
+            [ngClass]="{
+                error: signupForm.get('password')?.hasError('required') && signupForm.get('password')?.dirty,
+                warning:signupForm.get('password')?.hasError('minlength') && signupForm.get('password')?.dirty
+            }">
+        </mat-form-field>
     </div>
     <div *ngIf="signupForm.get('password')?.errors && signupForm.get('password')?.dirty">
-        <p *ngIf="signupForm.get('password')?.hasError('required')">Campo <strong>Password</strong> es obligatorio</p>
-        <p *ngIf="signupForm.get('password')?.hasError('minlength')">Campo <strong>Password</strong> debe tener al menos 6 caracteres</p>
-        <p *ngIf="signupForm.get('password')?.hasError('maxlength')">Campo <strong>Password</strong> no debe superar los 10 caracteres</p>
-    </div>  
+        <p *ngIf="signupForm.get('password')?.hasError('required')" class="textError">El campo es obligatorio</p>
+        <p *ngIf="signupForm.get('password')?.hasError('minlength')" class="textError">Debe completar al menos 3 caracteres</p>
+    </div>    
 
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid">Registrarse</button>
 </form>
+
+
+  

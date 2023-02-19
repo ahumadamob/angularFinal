@@ -1,16 +1,85 @@
-<div>
-    <h1>{{country.name.official}}</h1>
-    <p>{{country.cca2}}</p>
-    <a href={{country.maps.googleMaps}} target="_blank">Ver producto en Google Maps</a>
-    <a href={{country.maps.openStreetMaps}} target="_blank">Ver producto en OpenStreet</a>
-    <p>{{country.population}}</p>
-    <img src="{{country.coatOfArms.png}}" alt="Coat Of Arms" />    
-    <img src="{{country.flags.png}}" alt="{{country.flags.alt}}" />
-    
-    <!--
-    <div *ngFor="let picture of producto?.producto?.pictures">
-        <img src="{{picture?.secure_url}}" alt="" />
-    </div>
-    
--->
-</div>
+<h1 class="country-heading">{{country.name.official}}</h1>
+<mat-grid-list cols="2" > 
+    <mat-grid-tile>
+         
+        <mat-card class="card-100">
+            <mat-card-header>
+                <mat-card-title class="country-title">Bandera Nacional</mat-card-title>
+            </mat-card-header>            
+            <mat-card-content>
+                <img src="{{country.flags.png}}" alt="{{country.flags.alt}}" class="country-coat" /> 
+            </mat-card-content>
+            <mat-card-content>                
+                <p>{{country.flags.alt}}</p>
+            </mat-card-content>            
+        </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-card class="card-100">
+            <mat-card-header>
+                <mat-card-title class="country-title">Detalles</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="card-data-line">                
+                <p><strong>Superficie: </strong>{{country.area | number}} km²</p>
+            </mat-card-content>
+
+            <mat-card-content class="card-data-line">
+                <p><strong>Población: </strong>{{country.population | number}} habitantes</p>
+            </mat-card-content>
+
+            <mat-card-content class="card-data-line" *ngFor="let capital of country.capital">
+                <p><strong>Capital: </strong>{{capital}}</p>
+            </mat-card-content>            
+
+            <mat-card-content class="card-data-line">
+                <p><strong>Independiente: </strong>{{country.independent?'Si':'No'}}</p>
+            </mat-card-content>
+
+            <mat-card-content class="card-data-line">
+                <p><strong>Posee salida al mar: </strong>{{country.landlocked?'No':'Si'}}</p>
+            </mat-card-content>
+
+            <mat-card-content class="card-data-line">
+                <p><strong>Lenguajes: </strong>
+                    <span *ngFor="let language of country.languages | ObjectToArray">
+                        {{language}}.&nbsp;
+                    </span>
+                </p>
+            </mat-card-content>
+            <mat-card-content class="card-data-line">
+                <a class="country-link" mat-stroked-button href={{country.maps.googleMaps}} target="_blank">Ver en GoogleMaps</a> 
+            </mat-card-content>
+            <mat-card-content class="card-data-line">
+                <a class="country-link" mat-stroked-button href={{country.maps.openStreetMaps}} target="_blank">Ver en OpenStreet Maps</a> 
+            </mat-card-content>
+
+        </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title class="country-title">Escudo Nacional</mat-card-title>
+            </mat-card-header>            
+            <mat-card-content>
+                <img src="{{country.coatOfArms.png}}" alt="Coat Of Arms" class="country-coat" /> 
+            </mat-card-content>
+        </mat-card> 
+
+    </mat-grid-tile>
+        <mat-grid-tile>        
+            <mat-card class="card-100">
+                <mat-card-header>
+                    <mat-card-title class="country-title">Traducciones</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="card-data-line">                
+                    <p>
+                        <span *ngFor="let translation of country.translations | ObjectToArray">{{translation.official}}.&nbsp;</span>
+                    </p>
+                </mat-card-content>
+            </mat-card>        
+        </mat-grid-tile>
+    </mat-grid-list>

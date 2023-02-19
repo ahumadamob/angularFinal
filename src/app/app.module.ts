@@ -13,6 +13,19 @@ import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 
+// Material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list'; 
+import {MatIconModule} from '@angular/material/icon'; 
+import {MatGridListModule} from '@angular/material/grid-list'; 
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card'; 
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+// Pipes
+import { ObjectToArrayPipe } from './objectToArray.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +35,23 @@ import { HttpClientModule } from '@angular/common/http';
     ContinentComponent,
     CountryComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ObjectToArrayPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

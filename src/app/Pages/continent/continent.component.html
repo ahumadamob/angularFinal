@@ -1,5 +1,16 @@
+<h1 class="country-heading">Listado de Países</h1>
+
 <div *ngFor="let country of countries">
-    <p>{{country.cca2}}</p>
-    <p>{{country.name.official}}</p>
-    <button routerLink="/country/{{country.cca2}}">{{country.name.common}}</button>
+    <mat-card class="country-card">
+        <mat-card-header>
+            <mat-card-title class="country-title">{{country.name.common | slice:0:16}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <img class="country-flag" src="{{country.flags.png}}" >        
+        </mat-card-content>
+        <mat-card-content>
+            <a class="country-link" mat-stroked-button routerLink="/country/{{country.cca2}}">Detalles</a> 
+        </mat-card-content>
+    </mat-card>
 </div>
+<hr />

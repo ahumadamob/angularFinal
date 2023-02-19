@@ -1,4 +1,12 @@
+<h1 class="country-heading">Listado de Continentes</h1>
+
 <div *ngFor="let continent of continents">
-    <p>{{continent.id}}</p>
-    <button routerLink="/continent/{{continent.id}}">{{continent.name}}</button>
+    <mat-card class="country-card">
+        <mat-card-header>
+            <mat-card-title class="country-title">{{continent.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <a class="country-link" mat-stroked-button routerLink="/continent/{{continent.id}}">Países</a> 
+        </mat-card-content>
+    </mat-card>
 </div>

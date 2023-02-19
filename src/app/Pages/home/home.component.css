@@ -1,0 +1,32 @@
+.country-card{
+    max-width: 200px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.country-flag{
+    width: 120px;
+    height: 80px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.country-title{
+    font-size: 14px;
+}
+
+.country-link{
+    width: 100%;
+}
+
+.country-heading {
+	border-bottom-color: lightgrey;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-right: 20px;
+	padding-bottom: 10px;
+}

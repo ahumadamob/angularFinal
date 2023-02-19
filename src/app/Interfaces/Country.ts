@@ -7,8 +7,13 @@ export interface Country{
     coatOfArms: CountryCoatOfArms;
     flags: CountryFlags;
     maps: CountryMaps;
-    population: number
-
+    population: number;
+    area: number;
+    independent: boolean;​​
+    landlocked: boolean;
+    languages:any;
+    capital:string[];
+    translations:{}
 }
 
 export interface CountryName{
@@ -30,4 +35,8 @@ export interface CountryFlags{
 export interface CountryMaps{
     googleMaps: string,
     openStreetMaps: string
+}
+
+export interface CountryLanguages{
+    [k:string]:string
 }
